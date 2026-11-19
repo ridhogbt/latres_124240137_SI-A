@@ -1,0 +1,53 @@
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+
+    // Flutter Gradle Plugin harus setelah Android dan Kotlin
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.latres_124240137_si_a"
+
+    // Android SDK 35
+    compileSdk = 35
+    ndkVersion = flutter.ndkVersion
+
+    // Konfigurasi Java
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+    }
+
+    // Konfigurasi Kotlin
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    defaultConfig {
+        applicationId = "com.example.latres_124240137_si_a"
+
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+// Dependency untuk core library desugaring
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+}
