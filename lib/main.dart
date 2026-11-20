@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'services/auth_service.dart';
 import 'views/login_view.dart';
-import 'views/character_view.dart';
+import 'views/book_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

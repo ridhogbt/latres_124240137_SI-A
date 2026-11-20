@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
-import 'character_view.dart';
+import 'book_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -72,7 +72,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Harry Potter App',
+                  'Harry Potter Book App',
                   style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,

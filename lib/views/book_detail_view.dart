@@ -39,14 +39,14 @@ class CharacterDetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String name = character['fullName'] ?? 'Unknown';
+    final String name = character['originalTitle'] ?? 'Unknown';
 
-    final String image = character['image'] ?? '';
+    final String image = character['cover'] ?? '';
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF7FC),
       appBar: AppBar(
-        title: const Text('Character Detail'),
+        title: const Text('books Detail'),
         backgroundColor: Colors.brown,
         foregroundColor: Colors.white,
       ),
@@ -138,28 +138,28 @@ class CharacterDetailView extends StatelessWidget {
                     ),
                     const Divider(height: 24),
                     buildDetailItem(
-                      'Full Name',
-                      character['fullName'],
+                      'Title',
+                      character['title'],
                     ),
                     buildDetailItem(
-                      'Nickname',
-                      character['nickname'],
+                      'original title',
+                      character['originalTitle'],
                     ),
                     buildDetailItem(
-                      'House',
-                      character['hogwartsHouse'],
+                      'releasedate',
+                      character['releaseDate'],
                     ),
                     buildDetailItem(
-                      'Actor',
-                      character['actor'],
+                      'deskripsi',
+                      character['description'],
                     ),
                     buildDetailItem(
-                      'Date of Birth',
-                      character['birthdate'],
+                      'halaman',
+                      character['pages'],
                     ),
                     buildDetailItem(
-                      'Gender',
-                      character['gender'],
+                      'jumlah',
+                      character['index'],
                     ),
                     buildDetailItem(
                       'Eye Colour',

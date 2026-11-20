@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../services/auth_service.dart';
 import 'login_view.dart';
-import 'character_detail_view.dart';
+import 'book_detail_view.dart';
 import 'spells_view.dart';
 
 class CharacterView extends StatefulWidget {
@@ -30,7 +30,7 @@ class _CharacterViewState extends State<CharacterView> {
     try {
       final response = await http.get(
         Uri.parse(
-          'https://potterapi-fedeperin.vercel.app/en/characters',
+          'https://potterapi-fedeperin.vercel.app/en/books?',
         ),
       );
 
@@ -98,10 +98,10 @@ class _CharacterViewState extends State<CharacterView> {
     );
   }
 
-  Widget characterImage(dynamic character) {
-    final imageUrl = character['image']?.toString() ?? '';
+  Widget characterCover(dynamic character) {
+    final coverUrl = character['cover']?.toString() ?? '';
 
-    if (imageUrl.isEmpty) {
+    if (coverUrl.isEmpty) {
       return CircleAvatar(
         radius: 32,
         backgroundColor: Colors.brown.shade100,
@@ -116,7 +116,7 @@ class _CharacterViewState extends State<CharacterView> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
       child: Image.network(
-        imageUrl,
+        coverUrl,
         width: 64,
         height: 64,
         fit: BoxFit.cover,
@@ -158,7 +158,7 @@ class _CharacterViewState extends State<CharacterView> {
     return Scaffold(
       backgroundColor: const Color(0xFFFFF7FC),
       appBar: AppBar(
-        title: const Text('Harry Potter Characters'),
+        title: const Text('Harry Potter books'),
         backgroundColor: Colors.brown,
         foregroundColor: Colors.white,
         actions: [
@@ -219,16 +219,16 @@ class _CharacterViewState extends State<CharacterView> {
                               horizontal: 16,
                               vertical: 12,
                             ),
-                            leading: characterImage(character),
+                            leading: characterCover(character),
                             title: Text(
-                              character['fullName'] ?? 'Unknown',
+                              character['title'] ?? 'Unknown',
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ),
                             ),
                             subtitle: Text(
-                              'House: ${character['hogwartsHouse'] ?? 'Unknown'}',
+                              'releasedate: ${character['releaseDate'] ?? 'Unknown'}',
                               style: const TextStyle(fontSize: 14),
                             ),
                             trailing: const Icon(
